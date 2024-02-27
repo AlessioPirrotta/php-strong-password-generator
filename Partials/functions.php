@@ -1,6 +1,5 @@
 <?php
-$password = $_GET["password"];
-$passwordLength = strlen($password);
+session_start();
 
 function randomize($passwordLength)
 {
@@ -15,5 +14,8 @@ function randomize($passwordLength)
 
     return $password;
 }
-$passwordCasuale = randomize($passwordLength);
-?>
+
+if(isset($_GET['password'])) {
+    $passwordLength = strlen($_GET['password']);
+    $_SESSION['passwordCasuale'] = randomize($passwordLength);
+}
