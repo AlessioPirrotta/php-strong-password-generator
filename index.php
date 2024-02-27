@@ -1,27 +1,5 @@
-<?php
-$password = $_GET["password"];
-$passwordLength = strlen($password);
-
-function randomize($passwordLength)
-{
-    $caratteri = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_';
-    $lunghezzaCaratteri = strlen($caratteri);
-    $password = '';
-
-    for ($i = 0; $i < $passwordLength; $i++) {
-        $carattereCasuale = $caratteri[random_int(0, $lunghezzaCaratteri - 1)];
-        $password .= $carattereCasuale;
-    }
-
-    return $password;
-}
-$passwordCasuale = randomize($passwordLength);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,6 +13,7 @@ $passwordCasuale = randomize($passwordLength);
         <input style="width: 20%;" type="text" class="form-control" name="password" placeholder="" />
         <button class="btn btn-primary" type="submit">Invia</button>
     </form>
+    <?php include './Partial/functions.php'; ?>
     <?php
     if (!empty($passwordCasuale)) {
         echo '<h3 class="text-danger"> La tua non Password è sicura prova con: <span class="text-warning">' . $passwordCasuale .'</span></h3>';
