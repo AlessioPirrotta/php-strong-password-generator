@@ -1,5 +1,5 @@
 <?php
-session_start();
+include __DIR__ ."/Partials/functions.php";
 
 if (isset($_SESSION['passwordCasuale'])) {
     $passwordCasuale = $_SESSION['passwordCasuale'];
